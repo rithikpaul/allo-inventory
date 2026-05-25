@@ -178,8 +178,6 @@ export async function GET(req: NextRequest) {
       ),
       createdAt: r.createdAt.toISOString(),
     }));
-
-
     return Response.json({
   reservations: result,
   total: result.length,

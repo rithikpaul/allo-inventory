@@ -28,7 +28,9 @@ function StatCard({ label, value, sub, color }: { label: string; value: string |
 export default async function ProductsPage() {
   const { products, meta } = await getProducts();
 
-  const categories = [...new Set(products.map((p) => p.category))];
+  const categories = Array.from(
+  new Set(products.map((p) => p.category))
+);
   const totalAvailable = products.reduce((s, p) => s + p.totalAvailable, 0);
   const lowStockProducts = products.filter((p) => p.totalAvailable > 0 && p.totalAvailable <= 5);
 
